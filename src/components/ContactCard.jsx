@@ -1,10 +1,15 @@
 import React from 'react';
 
-const ContactCard = ({contact}) => {
+const ContactCard = ({contact, onDelete}) => {
     return(
         <div className="contact-card" key={contact.id}>
-            <h2>{contact.name}</h2>
-            <p>{contact.email}</p>
+            <div className="left-side">
+                <h2>{contact.name}</h2>
+                <p>{contact.email}</p>
+            </div>
+            <div className="right-side">
+                <button className="delete-btn" onClick={() => onDelete(contact.id)}>Delete</button>
+            </div>
         </div>
     );
 }

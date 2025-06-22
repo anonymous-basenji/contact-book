@@ -21,6 +21,11 @@ function App() {
     }
   }
 
+  const handleDeleteContact = (contactId) => {
+    const newContacts = contacts.filter(contact => contact.id !== contactId);
+    setContacts(newContacts);
+  }
+
   return (
     <div>
       <h1>My Contact Book</h1>
@@ -31,7 +36,7 @@ function App() {
       </form>
       <div>
         {contacts.map(contact => (
-          <ContactCard key={contact.id} contact={contact}/>
+          <ContactCard key={contact.id} contact={contact} onDelete={handleDeleteContact}/>
         ))}
       </div>
     </div>
